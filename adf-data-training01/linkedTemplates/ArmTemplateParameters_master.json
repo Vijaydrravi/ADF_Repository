@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-data-training01"
+		},
+		"ls_input_connectionString": {
+			"value": ""
+		},
+		"ls_sqldb_data_training_password": {
+			"value": ""
+		},
+		"ls_storage_account_data_training_connectionString": {
+			"value": ""
+		},
+		"ls_sqldb_data_training_properties_typeProperties_server": {
+			"value": "ds-data-training.database.windows.net"
+		},
+		"ls_sqldb_data_training_properties_typeProperties_database": {
+			"value": "sqldb-data-training"
+		},
+		"ls_sqldb_data_training_properties_typeProperties_userName": {
+			"value": "vijaydrravi"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
