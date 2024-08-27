@@ -39,7 +39,10 @@
 					"name": "select1"
 				},
 				{
-					"name": "filter1"
+					"name": "aggregate1"
+				},
+				{
+					"name": "aggregate2"
 				}
 			],
 			"scriptLines": [
@@ -82,18 +85,26 @@
 				"          FirstName,",
 				"          LastName,",
 				"          OrderID,",
-				"          ProductID,",
-				"          ProductName",
+				"          ProductName,",
+				"          Quantity,",
+				"          OrderTimestamp",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 filter(ERROR_FUNCTION('')) ~> filter1",
-				"filter1 sink(allowSchemaDrift: true,",
+				"select1 aggregate(groupBy(CustomerID,",
+				"          FirstName,",
+				"          LastName,",
+				"          ProductName,",
+				"          OrderID),",
+				"     timestamp = max(OrderTimestamp)) ~> aggregate1",
+				"aggregate1 aggregate(groupBy(OrderTimestamp = ERROR_FUNCTION(''))) ~> aggregate2",
+				"aggregate2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
+				"     recreate:true,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
