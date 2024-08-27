@@ -40,9 +40,6 @@
 				},
 				{
 					"name": "aggregate1"
-				},
-				{
-					"name": "aggregate2"
 				}
 			],
 			"scriptLines": [
@@ -97,8 +94,7 @@
 				"          ProductName,",
 				"          OrderID),",
 				"     timestamp = max(OrderTimestamp)) ~> aggregate1",
-				"aggregate1 aggregate(groupBy(OrderTimestamp = ERROR_FUNCTION(''))) ~> aggregate2",
-				"aggregate2 sink(allowSchemaDrift: true,",
+				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
