@@ -1,0 +1,16 @@
+{
+	"name": "ds_sqldb_prep_order",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqldb_data_training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "prep",
+			"table": "orderdetails"
+		}
+	}
+}

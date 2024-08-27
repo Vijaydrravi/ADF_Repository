@@ -1,0 +1,24 @@
+{
+	"name": "ds_blob_file_consolidated_customer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_storage_account_data_training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "customer.csv",
+				"folderPath": "customer",
+				"container": "consolidated"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
